@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"malloc.h": "c",
+		"cstdlib": "c"
+	},
+	"files.exclude": {
+		".vscode": true,
+		"*.so": true,
+		"objs": true
+	}
+}
