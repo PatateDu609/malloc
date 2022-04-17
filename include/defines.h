@@ -18,6 +18,5 @@
 #define GET_BLOCK(ptr) ((t_block *)((void *)ptr - sizeof(t_block)))
 
 #define NEXT_BLOCK(block) ((t_block *)((void *)block + sizeof(t_block) + block->size))
-#define PREV_BLOCK(block) ((t_block *)((void *)block - sizeof(t_block) - block->size))
 
 #endif

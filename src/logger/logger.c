@@ -2,9 +2,12 @@
 
 void log_blk(t_block *block)
 {
+	write(1, "\033[1;34m", 7);
 	log_nb((unsigned long)block, 16);
+	write(1, "\033[0m: ", 6);
+	log_nb((unsigned long)GET_DATA(block), 16);
 	write(1, " - ", 3);
-	log_nb((unsigned long)block + block->size, 16);
+	log_nb((unsigned long)block + sizeof(t_block) + block->size, 16);
 	write(1, " : ", 3);
 	log_nb(block->size, 10);
 	write(1, " bytes ", 7);

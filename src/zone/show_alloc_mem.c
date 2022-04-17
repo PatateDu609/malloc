@@ -12,18 +12,15 @@ void show_alloc_mem(void)
 	while (zone)
 	{
 		log_zone(zone);
-		if (zone->used)
-		{
-			t_block *block = GET_FIRST_BLOCK(zone);
+		t_block *block = GET_FIRST_BLOCK(zone);
 
-			while (block)
-			{
-				log_blk(block);
-				block = NEXT_BLOCK(block);
-			}
-		}
-		else
+		if (!block->size)
 			write(1, "No block in this zone\n", 23);
+		while (block->size)
+		{
+			log_blk(block);
+			block = NEXT_BLOCK(block);
+		}
 		zone = zone->next;
 	}
 }

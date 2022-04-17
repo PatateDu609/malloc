@@ -14,7 +14,6 @@ typedef struct s_zone
 	struct s_zone *next;
 	struct s_zone *prev;
 	size_t size;
-	char used;
 } t_zone;
 
 extern t_zone *g_zones;

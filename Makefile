@@ -20,8 +20,9 @@ BASENAME			:=	malloc.c					\
 						logger/utils.c				\
 						zone/alloc_zone.c			\
 						zone/utils.c				\
-						zone/block/reserve_block.c	\
 						zone/show_alloc_mem.c		\
+						zone/block/reserve_block.c	\
+						zone/block/split_block.c	\
 
 SRC 				:=	$(addprefix $(PATH_SRC)/, $(BASENAME))
 OBJS 				:=	$(addprefix $(PATH_OBJS)/, $(BASENAME:%.c=%.o))
