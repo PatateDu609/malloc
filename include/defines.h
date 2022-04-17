@@ -5,10 +5,12 @@
 
 #define TINY_ZONE ((size_t)getpagesize() * 4)
 #define SMALL_ZONE ((size_t)getpagesize() * 8)
-#define LARGE_ZONE ((size_t)getpagesize() * 16)
 
-#define IS_TINY(size) (1 <= size && size <= TINY_ZONE)
-#define IS_SMALL(size) (TINY_ZONE < size && size <= SMALL_ZONE)
+#define N 512
+#define M 8192
+
+#define IS_TINY(size) (1 <= size && size <= N)
+#define IS_SMALL(size) (N < size && size <= M)
 #define IS_LARGE(size) (SMALL_ZONE < size)
 
 #define GET_FIRST_BLOCK(zone) ((t_block *)((void *)zone + sizeof(t_zone)))
