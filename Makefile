@@ -12,25 +12,38 @@ PATH_INC			:=	-I./include
 PATH_SRC			:=	./src
 PATH_OBJS			:=	./objs
 
-CFLAGS				:=	-Wall -Werror -Wextra $(PATH_INC) -g
+CFLAGS				:=	-Wall -Werror -Wextra $(PATH_INC) -g -fPIC
 LDFLAGS				:=	-shared -fPIC -g
 
-BASENAME			:=	main.c
+BASENAME			:=	malloc.c					\
+						logger/logger.c				\
+						logger/utils.c				\
+						zone/alloc_zone.c			\
+						zone/utils.c				\
+						zone/block/reserve_block.c	\
+						zone/show_alloc_mem.c		\
 
 SRC 				:=	$(addprefix $(PATH_SRC)/, $(BASENAME))
 OBJS 				:=	$(addprefix $(PATH_OBJS)/, $(BASENAME:%.c=%.o))
 DEP 				:=	$(addprefix $(PATH_OBJS)/, $(BASENAME:%.c=%.d))
+
+MAIN				:=	main.c
 
 $(PATH_OBJS)/%.o:	$(PATH_SRC)/%.c
 					@echo "Compiling $(subst objs/,,$@)..."
 					$(MKDIR) $(dir $@)
 					$(CC) $(CFLAGS) -MMD -c $< -o $@
 
+main:				$(NAME)
+					$(CC) -g $(PATH_INC) -o test -L.  $(MAIN) -lft_malloc_$(HOSTTYPE)
+					@LD_LIBRARY_PATH=. ./test
+
 all:				$(NAME)
 
 $(NAME):			$(OBJS)
 					@echo "Creating shared library"
 					$(CC) $(LDFLAGS) -o $(NAME) $(OBJS)
+					@echo -n "\n"
 
 -include $(DEP)
 
@@ -46,5 +59,6 @@ fclean:				clean
 					$(RM) $(NAME)
 
 re:					fclean all
+
 
 .PHONY: all clean fclean re
