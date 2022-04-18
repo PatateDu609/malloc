@@ -3,7 +3,7 @@
 
 #include <unistd.h>
 
-#define TINY_ZONE ((size_t)getpagesize() * 4)
+#define TINY_ZONE ((size_t)getpagesize())
 #define SMALL_ZONE ((size_t)getpagesize() * 8)
 
 #define N 512
@@ -18,5 +18,8 @@
 #define GET_BLOCK(ptr) ((t_block *)((void *)ptr - sizeof(t_block)))
 
 #define NEXT_BLOCK(block) ((t_block *)((void *)block + sizeof(t_block) + block->size))
+
+#define IS_INSIDE_ZONE(zone, block) ((void *)zone < (void *)block && \
+									 (void *)block < (void *)zone + zone->size)
 
 #endif

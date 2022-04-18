@@ -6,7 +6,7 @@
 typedef struct s_block
 {
 	size_t size;
-	int free;
+	u_int16_t free;
 } t_block;
 
 typedef struct s_zone
