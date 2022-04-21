@@ -11,10 +11,13 @@
 size_t get_zone_size(size_t size);
 
 t_zone *alloc_zone(size_t size);
+void free_zone(t_zone *zone);
 void append_zone(t_zone *zone);
+void remove_zone(t_zone *zone);
 t_block *get_block(size_t size);
 
 t_block *reserve_block(t_zone *zone, size_t size);
+void return_block(void *block);
 void split_block(t_zone *zone, t_block *block, size_t old);
 
 void show_alloc_mem(void);

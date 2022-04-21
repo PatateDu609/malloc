@@ -22,6 +22,16 @@ void append_zone(t_zone *zone)
 	zone->next = NULL;
 }
 
+void remove_zone(t_zone *zone)
+{
+	if (zone->prev)
+		zone->prev->next = zone->next;
+	if (zone->next)
+		zone->next->prev = zone->prev;
+	if (zone == g_zones)
+		g_zones = zone->next;
+}
+
 size_t align(size_t size)
 {
 	return ((size + (ALIGNMENT - 1)) & ~(ALIGNMENT - 1));
