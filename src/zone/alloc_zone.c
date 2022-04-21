@@ -1,4 +1,5 @@
 #include "zones.h"
+#include "utils.h"
 
 static void init_zone(t_zone *zone)
 {
@@ -15,7 +16,7 @@ t_zone *alloc_zone(size_t size)
 	if (zone == MAP_FAILED)
 		return (NULL);
 
-	memset(zone, 0, zone_size);
+	ft_memset(zone, 0, zone_size);
 	t_zone *zone_struct = (t_zone *)zone;
 	zone_struct->size = zone_size;
 

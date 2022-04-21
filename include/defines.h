@@ -2,11 +2,15 @@
 #define DEFINES_H
 
 #include <unistd.h>
+#include <stddef.h>
+#include <stdalign.h>
 
-#define TINY_ZONE ((size_t)getpagesize())
+#define ALIGNMENT alignof(max_align_t)
+
+#define TINY_ZONE ((size_t)getpagesize() * 4)
 #define SMALL_ZONE ((size_t)getpagesize() * 8)
 
-#define N 512
+#define N 1024
 #define M 8192
 
 #define IS_TINY(size) (1 <= size && size <= N)
@@ -21,5 +25,7 @@
 
 #define IS_INSIDE_ZONE(zone, block) ((void *)zone < (void *)block && \
 									 (void *)block < (void *)zone + zone->size)
+
+#define IS_ZONE_EMPTY(zone) (zone->size == sizeof(t_zone) + GET_FIRST_BLOCK(zone)->size)
 
 #endif

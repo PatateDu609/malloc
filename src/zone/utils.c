@@ -7,7 +7,7 @@ size_t get_zone_size(size_t size)
 	else if (IS_SMALL(size))
 		return (SMALL_ZONE);
 	else
-		return (size);
+		return (size + sizeof(t_zone) + sizeof(t_block));
 }
 
 void append_zone(t_zone *zone)
@@ -20,4 +20,9 @@ void append_zone(t_zone *zone)
 	tmp->next = zone;
 	zone->prev = tmp;
 	zone->next = NULL;
+}
+
+size_t align(size_t size)
+{
+	return ((size + (ALIGNMENT - 1)) & ~(ALIGNMENT - 1));
 }

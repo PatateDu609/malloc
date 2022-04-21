@@ -12,7 +12,7 @@ PATH_INC			:=	-I./include
 PATH_SRC			:=	./src
 PATH_OBJS			:=	./objs
 
-CFLAGS				:=	-Wall -Werror -Wextra $(PATH_INC) -g -fPIC
+CFLAGS				:=	-Wall -Werror -Wextra $(PATH_INC) -g3 -gdwarf-2 -fPIC
 LDFLAGS				:=	-shared -fPIC -g
 
 BASENAME			:=	malloc.c					\
@@ -23,6 +23,9 @@ BASENAME			:=	malloc.c					\
 						zone/show_alloc_mem.c		\
 						zone/block/reserve_block.c	\
 						zone/block/split_block.c	\
+						zone/get_block.c			\
+						utils/ft_memset.c			\
+						utils/ft_memcpy.c			\
 
 SRC 				:=	$(addprefix $(PATH_SRC)/, $(BASENAME))
 OBJS 				:=	$(addprefix $(PATH_OBJS)/, $(BASENAME:%.c=%.o))
