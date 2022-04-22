@@ -1,6 +1,6 @@
 #include "zones.h"
 
-static t_zone *get_zone(t_block *block)
+t_zone *get_zone(t_block *block)
 {
 	t_zone *zone;
 
@@ -14,7 +14,7 @@ static t_zone *get_zone(t_block *block)
 	return (NULL);
 }
 
-static t_block *get_previous_block(t_zone *zone, t_block *block)
+t_block *get_previous_block(t_zone *zone, t_block *block)
 {
 	t_block *tmp;
 	t_block *prev;

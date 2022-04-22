@@ -16,6 +16,7 @@ CFLAGS				:=	-Wall -Werror -Wextra $(PATH_INC) -g3 -gdwarf-2 -fPIC
 LDFLAGS				:=	-shared -fPIC -g
 
 BASENAME			:=	malloc.c					\
+						realloc_utils.c				\
 						logger/logger.c				\
 						logger/utils.c				\
 						zone/alloc_zone.c			\
@@ -24,6 +25,7 @@ BASENAME			:=	malloc.c					\
 						zone/block/reserve_block.c	\
 						zone/block/split_block.c	\
 						zone/block/free_block.c		\
+						zone/block/resize_block.c	\
 						zone/get_block.c			\
 						zone/free_zone.c			\
 						utils/ft_memset.c			\

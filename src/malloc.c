@@ -20,10 +20,23 @@ void *malloc(size_t size)
 
 void *realloc(void *ptr, size_t size)
 {
-	write(1, "realloc\n", 8);
-	(void)ptr;
-	(void)size;
-	return NULL;
+	write(1, "realloc(", 8);
+	log_nb((unsigned long)ptr, 16);
+	write(1, ", ", 2);
+	log_nb(size, 10);
+	write(1, ")\n", 2);
+	if (!ptr)
+		return (malloc(size));
+	if (size == 0)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	size = align(size);
+	t_block *block = GET_BLOCK(ptr);
+	if (block->size >= size)
+		return (ptr);
+	return (GET_DATA(__realloc(block, size)));
 }
 
 void free(void *ptr)
