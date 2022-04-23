@@ -19,9 +19,9 @@ void log_blk(t_block *block)
 
 void log_zone(t_zone *zone)
 {
-	if (zone->size == TINY_ZONE)
+	if (zone->type == TINY)
 		write(1, "TINY (", 6);
-	else if (zone->size == SMALL_ZONE)
+	else if (zone->type == SMALL)
 		write(1, "SMALL (", 7);
 	else
 		write(1, "LARGE (", 7);

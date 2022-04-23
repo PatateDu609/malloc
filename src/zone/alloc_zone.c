@@ -10,7 +10,8 @@ static void init_zone(t_zone *zone)
 
 t_zone *alloc_zone(size_t size)
 {
-	size_t zone_size = get_zone_size(size);
+	t_zone_type type = get_zone_type(size);
+	size_t zone_size = get_zone_size(type, size);
 	void *zone = mmap(NULL, zone_size, PROT_READ | PROT_WRITE, MAP_ANON | MAP_PRIVATE, -1, 0);
 
 	if (zone == MAP_FAILED)
@@ -19,6 +20,7 @@ t_zone *alloc_zone(size_t size)
 	ft_memset(zone, 0, zone_size);
 	t_zone *zone_struct = (t_zone *)zone;
 	zone_struct->size = zone_size;
+	zone_struct->type = type;
 
 	init_zone(zone_struct);
 

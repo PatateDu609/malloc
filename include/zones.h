@@ -8,8 +8,9 @@
 #include <sys/mman.h>
 #include <string.h>
 
-size_t get_zone_size(size_t size);
+size_t get_zone_size(t_zone_type type, size_t size);
 t_zone *get_zone(t_block *block);
+t_zone_type get_zone_type(size_t size);
 
 t_zone *alloc_zone(size_t size);
 void free_zone(t_zone *zone);

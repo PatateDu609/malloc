@@ -18,6 +18,7 @@ LDFLAGS				:=	-shared -fPIC -g
 BASENAME			:=	malloc.c					\
 						realloc_utils.c				\
 						logger/logger.c				\
+						logger/log_funcs.c			\
 						logger/utils.c				\
 						zone/alloc_zone.c			\
 						zone/utils.c				\
@@ -30,6 +31,7 @@ BASENAME			:=	malloc.c					\
 						zone/free_zone.c			\
 						utils/ft_memset.c			\
 						utils/ft_memcpy.c			\
+						utils/ft_max.c				\
 
 SRC 				:=	$(addprefix $(PATH_SRC)/, $(BASENAME))
 OBJS 				:=	$(addprefix $(PATH_OBJS)/, $(BASENAME:%.c=%.o))

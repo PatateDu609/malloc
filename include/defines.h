@@ -15,7 +15,7 @@
 
 #define IS_TINY(size) (1 <= size && size <= N)
 #define IS_SMALL(size) (N < size && size <= M)
-#define IS_LARGE(size) (SMALL_ZONE < size)
+#define IS_LARGE(size) (!IS_TINY(size) && !IS_SMALL(size))
 
 #define GET_FIRST_BLOCK(zone) ((t_block *)((void *)zone + sizeof(t_zone)))
 #define GET_DATA(block) ((void *)block + sizeof(t_block))

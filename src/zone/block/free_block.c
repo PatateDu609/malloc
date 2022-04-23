@@ -21,7 +21,7 @@ t_block *get_previous_block(t_zone *zone, t_block *block)
 
 	tmp = GET_FIRST_BLOCK(zone);
 	prev = NULL;
-	while (tmp != block)
+	while (tmp != block && IS_INSIDE_ZONE(zone, tmp))
 	{
 		prev = tmp;
 		tmp = NEXT_BLOCK(tmp);

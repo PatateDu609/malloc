@@ -3,3 +3,4 @@ objs
 .vscode
 test
 .gdb_history
+*.log
