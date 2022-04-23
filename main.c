@@ -21,26 +21,7 @@ int main()
 	ptr = malloc(16);
 	ptr = calloc(1, 288);
 	ptr = malloc(32);
-	ptr = malloc(16);
-	ptr = malloc(96);
-	ptr = calloc(6, 48);
-	ptr = calloc(6, 864);
-	free(ptr);
-	ptr = malloc(480);
-	ptr12 = malloc(4096);
-	ptr10 = malloc(1616);
-	ptr1 = calloc(44, 48);
-	ptr2 = calloc(39, 160);
-	ptr3 = calloc(414, 3312);
-	ptr3 = realloc(ptr1, 46);
-	ptr4 = realloc(ptr2, 156);
-	ptr3 = realloc(ptr3, 3904);
-	ptr4 = malloc(944);
-	ptr5 = calloc(76, 608);
-	free(ptr12);
-	free(ptr);
-	ptr = malloc(16);
-	free(ptr);
+	show_alloc_mem_ex();
 
 	return (0);
 }

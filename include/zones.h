@@ -25,5 +25,6 @@ void split_block(t_zone *zone, t_block *block, size_t old);
 t_block *resize_block(t_block *block, size_t size);
 
 void show_alloc_mem(void);
+void show_alloc_mem_ex(void);
 
 #endif

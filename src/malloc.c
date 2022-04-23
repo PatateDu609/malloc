@@ -11,7 +11,7 @@ void *malloc(size_t size)
 	t_block *ptr = get_block(size);
 	if (!ptr)
 		return (NULL);
-	log_malloc(GET_DATA(ptr), size);
+	// log_malloc(GET_DATA(ptr), size);
 	return GET_DATA(ptr);
 }
 
@@ -20,7 +20,7 @@ void *realloc(void *ptr, size_t size)
 	t_block *block = __realloc(ptr, size);
 	if (!block)
 		return (NULL);
-	log_realloc(GET_DATA(block), ptr, size);
+	// log_realloc(GET_DATA(block), ptr, size);
 	return GET_DATA(block);
 }
 
@@ -33,8 +33,8 @@ void *calloc(size_t nmemb, size_t size)
 	t_block *block = get_block(size);
 	if (!block)
 		return (NULL);
-	ft_memset(GET_DATA(block), 0, total);
-	log_calloc(GET_DATA(block), nmemb, size);
+	ft_memset(GET_DATA(block), 0xaa, total);
+	// log_calloc(GET_DATA(block), nmemb, size);
 	return GET_DATA(block);
 }
 
@@ -43,5 +43,5 @@ void free(void *ptr)
 	if (!ptr)
 		return;
 	return_block(ptr);
-	log_free(ptr);
+	// log_free(ptr);
 }

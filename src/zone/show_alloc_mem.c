@@ -1,6 +1,24 @@
 #include "zones.h"
 
-void show_alloc_mem(void)
+static void show_ex(t_block *block)
+{
+	if (block->free)
+	{
+		write(1, "The block is free...\n", 21);
+		return ;
+	}
+	void *ptr = GET_DATA(block);
+	
+	for (size_t i = 0; i < block->size; ptr++, i++)
+	{
+		unsigned char data = *(unsigned char *)ptr;
+		log_nb(data, -16);
+		write(1, ((i + 1) % 64 ? " " : "\n"), 1);
+	}
+	write(1, "\n", 1);
+}
+
+static void show_mem(int ex)
 {
 	t_zone *zone = g_zones;
 
@@ -18,6 +36,8 @@ void show_alloc_mem(void)
 		while (IS_INSIDE_ZONE(zone, block))
 		{
 			log_blk(block);
+			if (ex)
+				show_ex(block);
 			if (!block->free)
 				s += block->size + sizeof(t_block);
 			block = NEXT_BLOCK(block);
@@ -29,4 +49,15 @@ void show_alloc_mem(void)
 		write(1, "\n", 1);
 		zone = zone->next;
 	}
+}
+
+void show_alloc_mem(void)
+{
+    show_mem(0);
+}
+
+
+void show_alloc_mem_ex()
+{
+    show_mem(1);
 }
