@@ -27,6 +27,6 @@
 									 (void *)block < (void *)zone + zone->size)
 
 #define IS_ZONE_EMPTY(zone) (zone->size == sizeof(t_zone) + GET_FIRST_BLOCK(zone)->size || \
-							 (IS_LARGE(zone->size) && GET_FIRST_BLOCK(zone)->free))
+							 (zone->type == LARGE && GET_FIRST_BLOCK(zone)->free))
 
 #endif

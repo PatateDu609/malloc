@@ -33,7 +33,7 @@ void *calloc(size_t nmemb, size_t size)
 	t_block *block = get_block(size);
 	if (!block)
 		return (NULL);
-	ft_memset(GET_DATA(block), 0xaa, total);
+	ft_memset(GET_DATA(block), 0, total);
 	// log_calloc(GET_DATA(block), nmemb, size);
 	return GET_DATA(block);
 }
