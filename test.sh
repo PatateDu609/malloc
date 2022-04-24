@@ -14,7 +14,7 @@ if [ $res != 0 ]; then
     exit 1
 fi
 
-gcc -w -gdwarf-2 -g3 -I./include testing/test$1.c -o test_true_malloc
+gcc -w -gdwarf-2 -g3 -DTRUE_MALLOC -I./include testing/test$1.c -o test_true_malloc
 
 if [ "$2" = "gdb" ]; then
     LD_LIBRARY_PATH=. gdb ./test

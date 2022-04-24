@@ -12,7 +12,7 @@ t_zone *alloc_zone(size_t size)
 {
 	t_zone_type type = get_zone_type(size);
 	size_t zone_size = get_zone_size(type, size);
-	void *zone = mmap(NULL, zone_size, PROT_READ | PROT_WRITE, MAP_ANON | MAP_PRIVATE, -1, 0);
+	void *zone = mmap(NULL, zone_size, PROT_READ | PROT_WRITE, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
 
 	if (zone == MAP_FAILED)
 		return (NULL);

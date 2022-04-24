@@ -9,7 +9,7 @@ t_block *get_block(size_t size)
 	zone = g_zones;
 	while (zone)
 	{
-		if (zone->type == type)
+		if (zone->type == type && type != LARGE)
 		{
 			block = reserve_block(zone, size);
 			if (block)

@@ -8,10 +8,10 @@
 #define ALIGNMENT alignof(max_align_t)
 
 #define TINY_ZONE ((size_t)getpagesize() * 4)
-#define SMALL_ZONE ((size_t)getpagesize() * 8)
+#define SMALL_ZONE ((size_t)getpagesize() * 16)
 
-#define N 1024
-#define M 8192
+#define N 128
+#define M 512
 
 #define IS_TINY(size) (1 <= size && size <= N)
 #define IS_SMALL(size) (N < size && size <= M)
@@ -23,7 +23,7 @@
 
 #define NEXT_BLOCK(block) ((t_block *)((void *)block + sizeof(t_block) + block->size))
 
-#define IS_INSIDE_ZONE(zone, block) ((void *)zone < (void *)block && \
+#define IS_INSIDE_ZONE(zone, block) (zone && (void *)zone < (void *)block && \
 									 (void *)block < (void *)zone + zone->size)
 
 #define IS_ZONE_EMPTY(zone) (zone->size == sizeof(t_zone) + GET_FIRST_BLOCK(zone)->size || \

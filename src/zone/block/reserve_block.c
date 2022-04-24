@@ -19,7 +19,7 @@ t_block *reserve_block(t_zone *zone, size_t size)
 	t_block *block = GET_FIRST_BLOCK(zone);
 	if (IS_LARGE(size))
 	{
-		block->size = size;
+		block->size = zone->size - sizeof(t_zone) - sizeof(t_block);
 		block->free = 0;
 		return (block);
 	}
