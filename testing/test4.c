@@ -21,6 +21,5 @@ int     main()
     addr3 = (char*)realloc(addr1, 128*M);
     addr3[127*M] = 42;
     print(addr3);
-    // printf("%zu", malloc_usable_size(addr3));
     return (0);
 }
