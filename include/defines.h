@@ -10,8 +10,8 @@
 #define N 1024
 #define M 8192
 
-#define TINY_ZONE ((size_t)getpagesize() * 26)
-#define SMALL_ZONE ((size_t)getpagesize() * 201)
+#define TINY_ZONE ((size_t)getpagesize() * 25)
+#define SMALL_ZONE ((size_t)getpagesize() * 200)
 
 #define IS_TINY(size) (1 <= size && size <= N)
 #define IS_SMALL(size) (N < size && size <= M)

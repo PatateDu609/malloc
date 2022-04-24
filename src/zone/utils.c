@@ -10,9 +10,9 @@ size_t get_zone_size(t_zone_type type, size_t size)
 	switch (type)
 	{
 	case TINY:
-		return (TINY_ZONE + sizeof(t_zone));
+		return (TINY_ZONE);
 	case SMALL:
-		return (SMALL_ZONE + sizeof(t_zone));
+		return (SMALL_ZONE);
 	case LARGE:
 		return (size + sizeof(t_zone) + sizeof(t_block));
 	default:
