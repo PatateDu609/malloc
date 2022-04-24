@@ -3,6 +3,13 @@
 
 // to test with /usr/bin/time -v
 
+void show()
+{
+#ifndef TRUE_MALLOC 
+    show_alloc_mem();
+#endif
+}
+
 int main(void)
 {
     int   i;

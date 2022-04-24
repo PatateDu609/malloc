@@ -2,6 +2,8 @@
 #define STRUCTS_H
 
 #include <stdlib.h>
+#include <stddef.h>
+#include <pthread.h>
 
 typedef enum e_zone_type
 {
@@ -25,5 +27,6 @@ typedef struct s_zone
 } t_zone;
 
 extern t_zone *g_zones;
+extern pthread_mutex_t g_mutex;
 
 #endif
