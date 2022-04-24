@@ -2,6 +2,13 @@
 
 //to test with /usr/bin/time -v
 
+void show()
+{
+#ifndef TRUE_MALLOC 
+    show_alloc_mem();
+#endif
+}
+
 int      main(void)
 {
     int   i;
@@ -14,5 +21,6 @@ int      main(void)
         addr[0] = 42;
         i++;
     }
+    // show();
     return (0);
 }

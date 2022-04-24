@@ -5,11 +5,6 @@ static size_t __align__(size_t s, size_t a)
 	return (s + a - 1) & ~(a - 1);
 }
 
-static size_t align_large(size_t s)
-{
-	return __align__(s, getpagesize());
-}
-
 size_t get_zone_size(t_zone_type type, size_t size)
 {
 	switch (type)
@@ -19,7 +14,7 @@ size_t get_zone_size(t_zone_type type, size_t size)
 	case SMALL:
 		return (SMALL_ZONE + sizeof(t_zone));
 	case LARGE:
-		return (align_large(size + sizeof(t_zone) + sizeof(t_block)));
+		return (size + sizeof(t_zone) + sizeof(t_block));
 	default:
 		return (0);
 	}
