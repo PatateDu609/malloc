@@ -18,8 +18,8 @@ static t_block *__realloc_new_blk(void *ptr, size_t size)
 
 	if (!new_block)
 	{
+		new_block = get_new_block(size, block);
 		return_block(ptr);
-		return (get_new_block(size, block));
 	}
 	return (new_block);
 }
