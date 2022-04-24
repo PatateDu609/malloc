@@ -27,6 +27,7 @@ BASENAME			:=	malloc.c					\
 						zone/block/split_block.c	\
 						zone/block/free_block.c		\
 						zone/block/resize_block.c	\
+						zone/block/chk_ptr.c		\
 						zone/get_block.c			\
 						zone/free_zone.c			\
 						utils/ft_memset.c			\

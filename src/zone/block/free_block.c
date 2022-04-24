@@ -46,7 +46,7 @@ void return_block(void *data)
 	block->free = 1;
 
 	t_zone *zone = get_zone(block);
-	if (!zone)
+	if (!zone && !chk_ptr(zone, data))
 		return;
 	defragmentate(zone, block);
 	if (IS_ZONE_EMPTY(zone))

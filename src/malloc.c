@@ -17,6 +17,8 @@ void *malloc(size_t size)
 
 void *realloc(void *ptr, size_t size)
 {
+	if (!chk_ptr(NULL, ptr))
+		return NULL;
 	t_block *block = __realloc(ptr, size);
 	if (!block)
 		return (NULL);
