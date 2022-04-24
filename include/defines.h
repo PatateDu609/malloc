@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stddef.h>
 #include <stdalign.h>
+#include <inttypes.h>
 
 #define ALIGNMENT alignof(max_align_t)
 

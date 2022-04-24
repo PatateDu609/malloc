@@ -18,7 +18,7 @@ static t_block *__realloc_new_blk(void *ptr, size_t size)
 
 	if (!new_block)
 	{
-		free(ptr);
+		return_block(ptr);
 		return (get_new_block(size, block));
 	}
 	return (new_block);
@@ -30,7 +30,7 @@ t_block *__realloc(void *ptr, size_t size)
 		return (get_block(size));
 	if (size == 0)
 	{
-		free(ptr);
+		return_block(ptr);
 		return (NULL);
 	}
 	size = align(size);

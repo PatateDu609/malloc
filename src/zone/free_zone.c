@@ -1,7 +1,7 @@
 #include "zones.h"
 #include "utils.h"
 
-static u_int8_t is_last_of_type(t_zone *zone)
+static uint8_t is_last_of_type(t_zone *zone)
 {
 	t_zone *z = g_zones;
 

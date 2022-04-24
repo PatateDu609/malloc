@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stddef.h>
+#include <inttypes.h>
 #include <pthread.h>
 
 typedef enum e_zone_type
@@ -15,7 +16,7 @@ typedef enum e_zone_type
 typedef struct s_block
 {
 	size_t size;
-	u_int16_t free;
+	uint16_t free;
 } t_block;
 
 typedef struct s_zone
