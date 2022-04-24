@@ -18,7 +18,7 @@ static void show_ex(t_block *block)
 	write(1, "\n", 1);
 }
 
-static void show_mem(int ex)
+static void __show_mem(int ex)
 {
 	t_zone *zone = g_zones;
 
@@ -49,6 +49,13 @@ static void show_mem(int ex)
 		write(1, "\n", 1);
 		zone = zone->next;
 	}
+}
+
+static void show_mem(int ex)
+{
+	pthread_mutex_lock(&g_mutex);
+	__show_mem(ex);
+	pthread_mutex_unlock(&g_mutex);
 }
 
 void show_alloc_mem(void)
