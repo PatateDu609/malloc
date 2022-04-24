@@ -4,3 +4,4 @@ objs
 test
 .gdb_history
 *.log
+test_true_malloc
