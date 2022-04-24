@@ -71,5 +71,9 @@ fclean:				clean
 
 re:					fclean all
 
+zones:
+					$(CC) $(PATH_INC) -o /tmp/compute_zones compute_zones.c
+					@/tmp/compute_zones $(N) $(M)
 
-.PHONY: all clean fclean re
+
+.PHONY: all clean fclean re zones

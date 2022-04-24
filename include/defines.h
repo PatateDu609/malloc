@@ -8,10 +8,16 @@
 #define ALIGNMENT alignof(max_align_t)
 
 #define N 1024
-#define M 8192
+#define M 2048
 
-#define TINY_ZONE ((size_t)getpagesize() * 25)
-#define SMALL_ZONE ((size_t)getpagesize() * 200)
+#define TINY_ZONE ((size_t)getpagesize() * 32)
+#define SMALL_ZONE ((size_t)getpagesize() * 50)
+
+// #define N 1024
+// #define M 8192
+
+// #define TINY_ZONE ((size_t)getpagesize() * 25)
+// #define SMALL_ZONE ((size_t)getpagesize() * 200)
 
 #define IS_TINY(size) (1 <= size && size <= N)
 #define IS_SMALL(size) (N < size && size <= M)

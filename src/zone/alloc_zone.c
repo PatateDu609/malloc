@@ -17,7 +17,6 @@ t_zone *alloc_zone(size_t size)
 	if (zone == MAP_FAILED)
 		return (NULL);
 
-	ft_memset(zone, 0, zone_size);
 	t_zone *zone_struct = (t_zone *)zone;
 	zone_struct->size = zone_size;
 	zone_struct->type = type;
