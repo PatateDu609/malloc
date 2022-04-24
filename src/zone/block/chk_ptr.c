@@ -4,8 +4,12 @@ static t_zone *get_zone_from_data(void *ptr)
 {
     t_zone *zone = g_zones;
 
-    while (zone && !IS_INSIDE_ZONE(zone, ptr))
+    while (zone)
+    {
+        if (IS_INSIDE_ZONE(zone, ptr))
+            return zone;
         zone = zone->next;
+    }
     return NULL;
 }
 
