@@ -16,6 +16,5 @@ void show(char *str)
 
 int main()
 {
-	while (1);
 	return (0);
 }
